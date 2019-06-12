@@ -1,0 +1,5 @@
+@import "../assets/variables.scss";
+
+@function containerWidth($productsCount) {
+  @return $productsCount * $productWidth + $productsCount * 2 * $productMargin;
+}
