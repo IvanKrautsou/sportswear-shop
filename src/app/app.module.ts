@@ -10,6 +10,11 @@ import { GoodsComponent } from './pages/products-page/goods/goods.component';
 import { ProductsFilterComponent } from './pages/products-page/products-filter/products-filter.component';
 import { AddProductComponent } from './pages/products-page/add-product/add-product.component';
 import { ProductComponent } from './pages/products-page/product/product.component';
+import { ControlComponent } from './core/control/control.component';
+import { CheckboxComponent } from './core/checkbox/checkbox.component';
+import { InputTextComponent } from './core/input-text/input-text.component';
+import { RadioButtonComponent } from './core/radio-button/radio-button.component';
+import { SelectComponent } from './core/select/select.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +25,12 @@ import { ProductComponent } from './pages/products-page/product/product.componen
     GoodsComponent,
     ProductsFilterComponent,
     AddProductComponent,
-    ProductComponent
+    ProductComponent,
+    ControlComponent,
+    CheckboxComponent,
+    InputTextComponent,
+    RadioButtonComponent,
+    SelectComponent
   ],
   imports: [
     BrowserModule,
