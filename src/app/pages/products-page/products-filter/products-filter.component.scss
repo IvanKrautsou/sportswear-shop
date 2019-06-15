@@ -1,0 +1,37 @@
+.filter {
+  background-color: #f5f6f7;
+  padding: 60px 96px 64px 96px;
+
+  @media (max-width: 900px) {
+    padding: 40px 96px 31px 96px;
+  }
+
+  @media (max-width: 540px) {
+    padding: 32px 24px 20px 24px;
+  }
+
+  &__controls {
+    display: inline-block;
+  }
+
+  &__button {
+    display: inline-block;
+    background-color: #aa9b77;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 18px 10px;
+    float: right;
+    margin-top: -14px;
+    border-radius: 4px;
+    color: white;
+
+    @media (max-width: 900px) {
+      margin-top: 12px;
+    }
+
+    @media (max-width: 350px) {
+      max-width: 99px;
+      margin-top: 5px;
+    }
+  }
+}
