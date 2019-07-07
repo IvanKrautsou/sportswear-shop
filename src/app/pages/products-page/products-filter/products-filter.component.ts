@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductsFilterService } from './products-filter.service';
 
 @Component({
   selector: 'app-products-filter',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsFilterComponent implements OnInit {
 
-  constructor() { }
+  public sexesList = [];
+
+  constructor( public productsFilterService: ProductsFilterService ) { }
+
+  toggleSex(e): void {
+    this.productsFilterService.toggleSex(e);
+  }
 
   ngOnInit() {
+    this.productsFilterService.sexesList.subscribe(list => this.sexesList = list);
   }
 
 }
