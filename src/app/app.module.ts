@@ -12,11 +12,11 @@ import { GoodsComponent } from './pages/products-page/goods/goods.component';
 import { ProductsFilterComponent } from './pages/products-page/products-filter/products-filter.component';
 import { AddProductComponent } from './pages/products-page/add-product/add-product.component';
 import { ProductComponent } from './pages/products-page/product/product.component';
-import { ControlComponent } from './core/control/control.component';
-import { CheckboxComponent } from './core/checkbox/checkbox.component';
-import { InputTextComponent } from './core/input-text/input-text.component';
-import { RadioButtonComponent } from './core/radio-button/radio-button.component';
-import { SelectComponent } from './core/select/select.component';
+import { ControlComponent } from './core/components/control/control.component';
+import { CheckboxComponent } from './core/components/control/checkbox/checkbox.component';
+import { InputTextComponent } from './core/components/control/input-text/input-text.component';
+import { RadioButtonComponent } from './core/components/control/radio-button/radio-button.component';
+import { SelectComponent } from './core/components/control/select/select.component';
 
 @NgModule({
   declarations: [
