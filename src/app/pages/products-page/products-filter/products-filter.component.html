@@ -3,13 +3,10 @@
     <app-checkbox (changeSexesList)="toggleSex('men')">MEN</app-checkbox>
     <app-checkbox (changeSexesList)="toggleSex('women')">WOMEN</app-checkbox>
     <app-checkbox (changeSexesList)="toggleSex('children')">CHILDREN</app-checkbox>
-    {{sexesList}}
-    <!--<Control type="checkbox" v-model="showMen">MEN</Control>-->
-    <!--<Control type="checkbox" :value="showWomen" @input="showWomen = $event">WOMEN</Control>-->
-    <!--<Control type="checkbox" v-model="showChildren">CHILDREN</Control>-->
+    {{sexesList$.source._value}}
   </div>
 
-  <div class="filter__button" >
+  <div class="filter__button">
     SEE CHOSEN PRODUCTS
   </div>
 </div>

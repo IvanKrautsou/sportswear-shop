@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {BehaviorSubject, Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ export class ProductsFilterService {
 
   public readonly sexesList: Observable<Array<string>> = this._sexesList.asObservable();
 
-  toggleSex(sex) {
+  toggleSex(sex: string) {
     if (this._sexesList.value.includes(sex)) {
       this._sexesList.next(this._sexesList.value.filter(str => str !== sex));
     } else {
@@ -18,5 +18,6 @@ export class ProductsFilterService {
     }
   }
 
-  constructor() { }
+  constructor() {
+  }
 }
