@@ -11,7 +11,7 @@ export class ProductsFilterComponent implements OnInit {
 
   public sexesList$: Observable<Array<string>>;
 
-  constructor(public productsFilterService: ProductsFilterService) {
+  constructor(private productsFilterService: ProductsFilterService) {
   }
 
   private toggleSex(sex: string): void {

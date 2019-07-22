@@ -3,7 +3,7 @@
     <app-checkbox (changeSexesList)="toggleSex('men')">MEN</app-checkbox>
     <app-checkbox (changeSexesList)="toggleSex('women')">WOMEN</app-checkbox>
     <app-checkbox (changeSexesList)="toggleSex('children')">CHILDREN</app-checkbox>
-    {{sexesList$.source._value}}
+    {{sexesList$ | async}}
   </div>
 
   <div class="filter__button">
