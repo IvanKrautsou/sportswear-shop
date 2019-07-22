@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ProductsFilterService } from '../../../core/services/products-filter-service/products-filter.service';
+import {Component, OnInit} from '@angular/core';
+import {ProductsFilterService} from '../../../core/services/products-filter-service/products-filter.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-products-filter',
@@ -8,16 +9,17 @@ import { ProductsFilterService } from '../../../core/services/products-filter-se
 })
 export class ProductsFilterComponent implements OnInit {
 
-  public sexesList = [];
+  public sexesList$: Observable<Array<string>>;
 
-  constructor( public productsFilterService: ProductsFilterService ) { }
+  constructor(private productsFilterService: ProductsFilterService) {
+  }
 
-  toggleSex(e): void {
-    this.productsFilterService.toggleSex(e);
+  private toggleSex(sex: string): void {
+    this.productsFilterService.toggleSex(sex);
   }
 
   ngOnInit() {
-    this.productsFilterService.sexesList.subscribe(list => this.sexesList = list);
+    this.sexesList$ = this.productsFilterService.sexesList;
   }
 
 }
