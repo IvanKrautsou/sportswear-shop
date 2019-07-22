@@ -22,6 +22,10 @@
     display: inline-block;
     margin: $productMargin;
 
+    &_selected {
+      outline: 6px #aa9b77 solid;
+    }
+
     @media (max-width: containerWidth($productsCount: 1) - 1) {
       margin: $productMobMargin;
     }
