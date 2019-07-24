@@ -3,7 +3,7 @@
   <div class="cart__title">
     Shopping cart
   </div>
-  <div class="cart__notification" *ngIf="!this.shoppingCartService.amountOfSelectedProducts()">Your shopping cart is
+  <div class="cart__notification" *ngIf="!(this.shoppingCartService.selectedProductsIds | async).length">Your shopping cart is
     empty. You can go to the catalog and add products
   </div>
 

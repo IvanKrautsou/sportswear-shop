@@ -12,33 +12,31 @@ export class ShoppingCartServiceService {
   constructor(private productsService: ProductsServiceService) {
   }
 
-  private _selectedProductsIdList: BehaviorSubject<number[]> = new BehaviorSubject([]);
+  private _selectedProductsIds: BehaviorSubject<number[]> = new BehaviorSubject([]);
 
-  public readonly selectedProductsIdList: Observable<number[]> = this._selectedProductsIdList.asObservable();
+  public readonly selectedProductsIds: Observable<number[]> = this._selectedProductsIds.asObservable();
 
   toggleProduct(productId: number): void {
-    if (this._selectedProductsIdList.value.includes(productId)) {
-      this._selectedProductsIdList.next(this._selectedProductsIdList.value.filter(item => item !== productId));
+    if (this._selectedProductsIds.value.includes(productId)) {
+      this._selectedProductsIds.next(this._selectedProductsIds.value.filter(item => item !== productId));
     } else {
-      this._selectedProductsIdList.next([...this._selectedProductsIdList.value, productId]);
+      this._selectedProductsIds.next([...this._selectedProductsIds.value, productId]);
     }
-    console.log(this._selectedProductsIdList.value);
+    console.log(this._selectedProductsIds.value);
   }
 
   isProductSelected(id: number): Observable<boolean> {
-    return this._selectedProductsIdList.pipe(map(idList => idList.includes(id)));
+    return this.selectedProductsIds.pipe(map(idList => idList.includes(id)));
   }
 
   amountOfSelectedProducts(): Observable<number> {
-    return this._selectedProductsIdList.pipe(map(products => products.length));
+    return this.selectedProductsIds.pipe(map(products => products.length));
   }
 
   getSelectedProducts() {
     const getProductsById = (products) => {
-      return this.selectedProductsIdList.pipe(
-        map(id => {
-          return products.filter(product => id.includes(product.id));
-        })
+      return this.selectedProductsIds.pipe(
+        map(id => products.filter(product => id.includes(product.id)))
       );
     };
 
