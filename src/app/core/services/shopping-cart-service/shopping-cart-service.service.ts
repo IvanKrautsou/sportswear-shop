@@ -1,28 +1,29 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShoppingCartServiceService {
 
-  private _selectedProductsList: BehaviorSubject<Array<number>> = new BehaviorSubject<Array<number>>([]);
+  private _selectedProductsIdList: BehaviorSubject<number[]> = new BehaviorSubject([]);
 
   toggleProduct(productId: number): void {
-    if (this._selectedProductsList.value.includes(productId)) {
-      this._selectedProductsList.next(this._selectedProductsList.value.filter(item => item !== productId));
+    if (this._selectedProductsIdList.value.includes(productId)) {
+      this._selectedProductsIdList.next(this._selectedProductsIdList.value.filter(item => item !== productId));
     } else {
-      this._selectedProductsList.next([...this._selectedProductsList.value, productId]);
+      this._selectedProductsIdList.next([...this._selectedProductsIdList.value, productId]);
     }
-    console.log(this._selectedProductsList.value);
+    console.log(this._selectedProductsIdList.value);
   }
 
-  isProductSelected(id: number): boolean {
-    return this._selectedProductsList.value.includes(id);
+  isProductSelected(id: number): Observable<boolean> {
+    return this._selectedProductsIdList.pipe(map(idList => idList.includes(id)));
   }
 
-  amountOfSelectedProducts(): number {
-    return this._selectedProductsList.value.length;
+  amountOfSelectedProducts(): Observable<number> {
+    return this._selectedProductsIdList.pipe(map(products => products.length));
   }
 
   constructor() {

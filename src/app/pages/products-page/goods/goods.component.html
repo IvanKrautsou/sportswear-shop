@@ -5,7 +5,7 @@
       *ngFor="let product of products"
       [product]="product"
       (click)="toggleProductInCart(product.id)"
-      [class.goods__product_selected]="this.shoppingCartService.isProductSelected(product.id)"
+      [class.goods__product_selected]="this.shoppingCartService.isProductSelected(product.id) | async"
     ></app-product>
   </div>
 </div>
