@@ -1,0 +1,28 @@
+<div class="cart">
+
+  <div class="cart__title">
+    Shopping cart
+  </div>
+  <div class="cart__notification" *ngIf="!this.shoppingCartService.amountOfSelectedProducts()">Your shopping cart is
+    empty. You can go to the catalog and add products
+  </div>
+
+  <div class="cart__product" *ngFor="let product of products$ | async">
+
+    <div class="cart__product-img-container">
+      <img class="cart__product-img" [src]="product.img" alt="product">
+    </div>
+    <div class="cart__product-information">
+      <div class="cart__product-name">{{product.name}}</div>
+      <div>For {{product.sex}}</div>
+      <div>Size: {{product.size}}</div>
+      <div>{{product.price}}</div>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+

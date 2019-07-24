@@ -2,19 +2,21 @@
   <div class="header__head">
     <img class="header__foot" src="../../assets/images/foot.png" alt="code"/>
     <div class="header__links">
-      <a href="/">Home</a>
-      <a href="/">Products</a>
+      <a routerLink="/products">Home</a>
+      <a routerLink="/products">Products</a>
 
-      <div class="header__shopping-cart">
+      <a class="header__shopping-cart" routerLink="/cart">
         <img class="header__foot" src="../../assets/images/shopping-cart.png" alt="code"/>
         <div class="header__product-counter">{{this.shoppingCartService.amountOfSelectedProducts() || ''}}</div>
-      </div>
+      </a>
     </div>
   </div>
 
   <div class="header__text">
     <div class="header__title">Our clothing , your comfort</div>
-    <div class="header__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+    <div class="header__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+      incididunt ut labore et dolore magna aliqua.
+    </div>
   </div>
 
   <div class="header__arrow"></div>
