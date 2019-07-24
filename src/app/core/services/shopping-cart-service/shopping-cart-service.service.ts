@@ -12,30 +12,30 @@ export class ShoppingCartServiceService {
   constructor(private productsService: ProductsServiceService) {
   }
 
-  private _selectedProductsList: BehaviorSubject<Array<number>> = new BehaviorSubject<Array<number>>([]);
+  private _selectedProductsIdList: BehaviorSubject<number[]> = new BehaviorSubject([]);
 
-  public readonly selectedProductsList: Observable<Array<number>> = this._selectedProductsList.asObservable();
+  public readonly selectedProductsIdList: Observable<number[]> = this._selectedProductsIdList.asObservable();
 
   toggleProduct(productId: number): void {
-    if (this._selectedProductsList.value.includes(productId)) {
-      this._selectedProductsList.next(this._selectedProductsList.value.filter(item => item !== productId));
+    if (this._selectedProductsIdList.value.includes(productId)) {
+      this._selectedProductsIdList.next(this._selectedProductsIdList.value.filter(item => item !== productId));
     } else {
-      this._selectedProductsList.next([...this._selectedProductsList.value, productId]);
+      this._selectedProductsIdList.next([...this._selectedProductsIdList.value, productId]);
     }
-    console.log(this._selectedProductsList.value);
+    console.log(this._selectedProductsIdList.value);
   }
 
-  isProductSelected(id: number): boolean {
-    return this._selectedProductsList.value.includes(id);
+  isProductSelected(id: number): Observable<boolean> {
+    return this._selectedProductsIdList.pipe(map(idList => idList.includes(id)));
   }
 
-  amountOfSelectedProducts(): number {
-    return this._selectedProductsList.value.length;
+  amountOfSelectedProducts(): Observable<number> {
+    return this._selectedProductsIdList.pipe(map(products => products.length));
   }
 
   getSelectedProducts() {
     const getProductsById = (products) => {
-      return this.selectedProductsList.pipe(
+      return this.selectedProductsIdList.pipe(
         map(id => {
           return products.filter(product => id.includes(product.id));
         })
@@ -45,6 +45,6 @@ export class ShoppingCartServiceService {
     return this.productsService.getAllProducts().pipe(
       switchMap(getProductsById)
     );
-  }
 
+  }
 }
