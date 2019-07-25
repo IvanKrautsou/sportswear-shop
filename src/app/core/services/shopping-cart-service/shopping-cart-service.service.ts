@@ -22,7 +22,6 @@ export class ShoppingCartServiceService {
     } else {
       this._selectedProductsIds.next([...this._selectedProductsIds.value, productId]);
     }
-    console.log(this._selectedProductsIds.value);
   }
 
   isProductSelected(id: number): Observable<boolean> {
