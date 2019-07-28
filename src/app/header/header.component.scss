@@ -41,11 +41,14 @@
 
   &__shopping-cart {
     display: inline-block;
+    position: relative;
   }
 
   &__product-counter {
-    float: left;
     margin-top: 10px;
+    position: absolute;
+    top: 2px;
+    right: 23px;
   }
 
   &__text {

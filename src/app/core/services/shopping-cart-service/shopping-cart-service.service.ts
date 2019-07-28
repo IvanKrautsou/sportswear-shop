@@ -1,31 +1,47 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
+import {ProductsServiceService} from '../products-service/products-service.service';
+import {map, switchMap} from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShoppingCartServiceService {
 
-  private _selectedProductsIdList: BehaviorSubject<number[]> = new BehaviorSubject([]);
+  constructor(private productsService: ProductsServiceService) {
+  }
+
+  private _selectedProductsIds: BehaviorSubject<number[]> = new BehaviorSubject([]);
+
+  public readonly selectedProductsIds: Observable<number[]> = this._selectedProductsIds.asObservable();
 
   toggleProduct(productId: number): void {
-    if (this._selectedProductsIdList.value.includes(productId)) {
-      this._selectedProductsIdList.next(this._selectedProductsIdList.value.filter(item => item !== productId));
+    if (this._selectedProductsIds.value.includes(productId)) {
+      this._selectedProductsIds.next(this._selectedProductsIds.value.filter(item => item !== productId));
     } else {
-      this._selectedProductsIdList.next([...this._selectedProductsIdList.value, productId]);
+      this._selectedProductsIds.next([...this._selectedProductsIds.value, productId]);
     }
-    console.log(this._selectedProductsIdList.value);
   }
 
   isProductSelected(id: number): Observable<boolean> {
-    return this._selectedProductsIdList.pipe(map(idList => idList.includes(id)));
+    return this.selectedProductsIds.pipe(map(idList => idList.includes(id)));
   }
 
   amountOfSelectedProducts(): Observable<number> {
-    return this._selectedProductsIdList.pipe(map(products => products.length));
+    return this.selectedProductsIds.pipe(map(products => products.length));
   }
 
-  constructor() {
+  getSelectedProducts() {
+    const getProductsById = (products) => {
+      return this.selectedProductsIds.pipe(
+        map(id => products.filter(product => id.includes(product.id)))
+      );
+    };
+
+    return this.productsService.getAllProducts().pipe(
+      switchMap(getProductsById)
+    );
+
   }
 }
