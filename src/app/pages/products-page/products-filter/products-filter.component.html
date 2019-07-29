@@ -1,12 +1,11 @@
 <div class="filter">
   <div class="filter__controls">
-    <app-checkbox (changeSexesList)="toggleSex('men')">MEN</app-checkbox>
-    <app-checkbox (changeSexesList)="toggleSex('women')">WOMEN</app-checkbox>
-    <app-checkbox (changeSexesList)="toggleSex('children')">CHILDREN</app-checkbox>
-    {{sexesList$ | async}}
+    <app-checkbox (changeSexesList)="toggleSex(0)" [checked]="checked(0)">MEN</app-checkbox>
+    <app-checkbox (changeSexesList)="toggleSex(1)" [checked]="checked(1)">WOMEN</app-checkbox>
+    <app-checkbox (changeSexesList)="toggleSex(2)" [checked]="checked(2)">CHILDREN</app-checkbox>
   </div>
 
-  <div class="filter__button">
-    SEE CHOSEN PRODUCTS
+  <div class="filter__button" (click)="seeAllProducts()">
+    SEE ALL PRODUCTS
   </div>
 </div>

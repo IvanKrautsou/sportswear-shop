@@ -1,5 +1,5 @@
 <label class="filter__checkbox checkbox">
-  <input (change)="changeSexesList.emit()" type="checkbox" checked>
+  <input (change)="changeSexesList.emit()" type="checkbox" [checked]="checked | async">
   <span class="checkbox__checkmark"></span>
   <ng-content></ng-content>
 </label>
