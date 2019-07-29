@@ -10,7 +10,7 @@ import {Observable} from 'rxjs';
 export class CheckboxComponent implements OnInit {
 
   @Input() checked: Observable<boolean>;
-  @Output() changeSexesList = new EventEmitter();
+  @Output() changeEvent = new EventEmitter();
 
   constructor() {
   }

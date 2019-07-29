@@ -11,13 +11,15 @@ import {map} from 'rxjs/operators';
 })
 export class ProductsFilterComponent implements OnInit {
 
+  constructor(private productsFilterService: ProductsFilterService) {
+  }
+
   public sexesList$: Observable<Sex[]>;
+
+  public sex = Sex;
 
   checked(sex: number): Observable<boolean> {
     return this.sexesList$.pipe(map(sexes => sexes.includes(sex)));
-  }
-
-  constructor(private productsFilterService: ProductsFilterService) {
   }
 
   private toggleSex(sex: Sex): void {
