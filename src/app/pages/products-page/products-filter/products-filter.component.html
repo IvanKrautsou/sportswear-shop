@@ -1,8 +1,11 @@
 <div class="filter">
   <div class="filter__controls">
-    <app-checkbox (changeEvent)="toggleSex(sex.men)" [checked]="checked(sex.men)">{{sex[0] | uppercase}}</app-checkbox>
-    <app-checkbox (changeEvent)="toggleSex(sex.women)" [checked]="checked(sex.women)">{{sex[1] | uppercase}}</app-checkbox>
-    <app-checkbox (changeEvent)="toggleSex(sex.children)" [checked]="checked(sex.children)">{{sex[2] | uppercase}}</app-checkbox>
+    <app-checkbox (valueChanged)="toggleSex(sex.men)"
+                  [checked]="sexesChecked[sex.men] | async">MEN</app-checkbox>
+    <app-checkbox (valueChanged)="toggleSex(sex.women)"
+                  [checked]="sexesChecked[sex.women] | async">WOMEN</app-checkbox>
+    <app-checkbox (valueChanged)="toggleSex(sex.children)"
+                  [checked]="sexesChecked[sex.children] | async">CHILDREN</app-checkbox>
   </div>
 
   <div class="filter__button" (click)="seeAllProducts()">

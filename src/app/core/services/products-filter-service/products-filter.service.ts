@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
-
-export enum Sex {men, women, children}
+import {Sex} from '../../../product';
 
 @Injectable({
   providedIn: 'root'
