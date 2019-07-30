@@ -33,6 +33,7 @@ export class ProductsServiceService {
     return this.getAllProducts().pipe(
       switchMap(getProductsBySexes)
     );
+
   }
 }
 
