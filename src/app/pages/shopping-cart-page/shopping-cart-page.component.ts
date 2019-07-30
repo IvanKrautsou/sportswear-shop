@@ -20,4 +20,7 @@ export class ShoppingCartPageComponent implements OnInit {
 
   }
 
+  togglePrice(price) {
+    this.shoppingCartService.togglePrice(price);
+  }
 }
