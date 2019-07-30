@@ -42,6 +42,9 @@ export class ShoppingCartServiceService {
     return this.productsService.getAllProducts().pipe(
       switchMap(getProductsById)
     );
+  }
 
+  cleanCart() {
+    this._selectedProductsIds.next([]);
   }
 }

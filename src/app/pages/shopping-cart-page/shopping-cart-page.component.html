@@ -9,7 +9,7 @@
 
   <div class="cart__product" *ngFor="let product of products$ | async">
 
-    <app-checkbox (changeEvent)="togglePrice(product.price)"></app-checkbox>
+    <app-checkbox (valueChanged)="toggleIds(product.id)"></app-checkbox>
 
     <div class="cart__product-img-container">
       <img class="cart__product-img" [src]="product.img" alt="product">
@@ -24,8 +24,8 @@
   </div>
 
   <div class="cart__summary">
-    <div class="cart__price">Total price:{{shoppingCartService.calculatedPrice() | async}}_____{{shoppingCartService.cartPrice | async}}</div>
-    <div class="cart__button">BUY</div>
+    <div class="cart__price">Total price: {{totalPrice$ | async}},00$</div>
+    <div class="cart__button" (click)="checkout()">BUY</div>
   </div>
 
 </div>
