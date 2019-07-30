@@ -1,7 +1,14 @@
 import {Component, OnInit} from '@angular/core';
-import {ProductsFilterService, Sex} from '../../../core/services/products-filter-service/products-filter.service';
+import {ProductsFilterService} from '../../../core/services/products-filter-service/products-filter.service';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {Sex} from '../../../product';
+
+interface SexesCheckedMap {
+  [Sex.men]: Observable<boolean>;
+  [Sex.children]: Observable<boolean>;
+  [Sex.women]: Observable<boolean>;
+}
 
 
 @Component({
@@ -18,9 +25,7 @@ export class ProductsFilterComponent implements OnInit {
 
   public sex = Sex;
 
-  checked(sex: number): Observable<boolean> {
-    return this.sexesList$.pipe(map(sexes => sexes.includes(sex)));
-  }
+  sexesChecked: SexesCheckedMap;
 
   private toggleSex(sex: Sex): void {
     this.productsFilterService.toggleSex(sex);
@@ -32,6 +37,11 @@ export class ProductsFilterComponent implements OnInit {
 
   ngOnInit() {
     this.sexesList$ = this.productsFilterService.sexesList;
+    this.sexesChecked = {
+      [Sex.men]: this.sexesList$.pipe(map(sexes => sexes.includes(Sex.men))),
+      [Sex.women]: this.sexesList$.pipe(map(sexes => sexes.includes(Sex.women))),
+      [Sex.children]: this.sexesList$.pipe(map(sexes => sexes.includes(Sex.children))),
+    };
   }
 
 }

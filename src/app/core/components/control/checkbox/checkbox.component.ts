@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Output, EventEmitter} from '@angular/core';
-import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-checkbox',
@@ -9,8 +8,8 @@ import {Observable} from 'rxjs';
 })
 export class CheckboxComponent implements OnInit {
 
-  @Input() checked: Observable<boolean>;
-  @Output() changeEvent = new EventEmitter();
+  @Input() checked: boolean;
+  @Output() valueChanged = new EventEmitter();
 
   constructor() {
   }

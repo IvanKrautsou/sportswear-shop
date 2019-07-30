@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {ProductsFilterService, Sex} from '../products-filter-service/products-filter.service';
+import {ProductsFilterService} from '../products-filter-service/products-filter.service';
 import {switchMap, map} from 'rxjs/operators';
 import {Product} from '../../../product';
 import {Observable} from 'rxjs';
@@ -25,7 +25,7 @@ export class ProductsServiceService {
     const getProductsBySexes = (products) => {
       return this.productsFilterService.sexesList.pipe(
         map(sexes => {
-          return products.filter(product => sexes.map(sex => Sex[sex]).includes(product.sex));
+          return products.filter(product => sexes.includes(product.sex));
         })
       );
     };
@@ -33,6 +33,7 @@ export class ProductsServiceService {
     return this.getAllProducts().pipe(
       switchMap(getProductsBySexes)
     );
+
   }
 }
 
