@@ -1,13 +1,13 @@
 <div class="cart__title">
   Shopping cart
-  <div style="display: inline-block" *ngIf="(this.shoppingCartService.selectedProductsIds | async).length">
+  <div style="display: inline-block" *ngIf="(this.shoppingCartService.selectedProductsIds$ | async).length">
     ({{this.shoppingCartService.amountOfSelectedProducts() | async}})
   </div>
 </div>
 
 <div class="cart">
 
-  <div class="cart__notification" *ngIf="!(this.shoppingCartService.selectedProductsIds | async).length">Your shopping
+  <div class="cart__notification" *ngIf="!(this.shoppingCartService.selectedProductsIds$ | async).length">Your shopping
     cart is
     empty. You can go to the catalog and add products
   </div>
@@ -28,7 +28,7 @@
 
   </div>
 
-  <div class="cart__summary" *ngIf="(this.shoppingCartService.selectedProductsIds | async).length">
+  <div class="cart__summary" *ngIf="(this.shoppingCartService.selectedProductsIds$ | async).length">
     <div class="cart__price">Total price: {{totalPrice$ | async}},00$</div>
     <div class="cart__button" (click)="checkout()">BUY</div>
   </div>

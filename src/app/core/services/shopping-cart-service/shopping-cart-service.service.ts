@@ -14,7 +14,7 @@ export class ShoppingCartServiceService {
 
   private _selectedProductsIds: BehaviorSubject<number[]> = new BehaviorSubject([]);
 
-  public readonly selectedProductsIds: Observable<number[]> = this._selectedProductsIds.asObservable();
+  public readonly selectedProductsIds$: Observable<number[]> = this._selectedProductsIds.asObservable();
 
   toggleProduct(productId: number): void {
     if (this._selectedProductsIds.value.includes(productId)) {
@@ -24,17 +24,23 @@ export class ShoppingCartServiceService {
     }
   }
 
+  addProductToCart(productId: number): void {
+    if (!this._selectedProductsIds.value.includes(productId)) {
+      this._selectedProductsIds.next([...this._selectedProductsIds.value, productId]);
+    }
+  }
+
   isProductSelected(id: number): Observable<boolean> {
-    return this.selectedProductsIds.pipe(map(idList => idList.includes(id)));
+    return this.selectedProductsIds$.pipe(map(idList => idList.includes(id)));
   }
 
   amountOfSelectedProducts(): Observable<number> {
-    return this.selectedProductsIds.pipe(map(products => products.length));
+    return this.selectedProductsIds$.pipe(map(products => products.length));
   }
 
   getSelectedProducts() {
     const getProductsById = (products) => {
-      return this.selectedProductsIds.pipe(
+      return this.selectedProductsIds$.pipe(
         map(id => products.filter(product => id.includes(product.id)))
       );
     };

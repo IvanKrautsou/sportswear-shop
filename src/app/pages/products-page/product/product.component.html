@@ -1,8 +1,13 @@
 <div class="goods__product product product_main-page">
+
   <div class="product__size">{{product.size}}</div>
   <div class="product__name">{{product.name}}</div>
   <div class="product__price">{{product.price}},00$</div>
+
   <div class="product__img">
     <img [src]="product.img" alt="product">
   </div>
+
+  <div class="product__showInfo" [routerLink]="['/products', product.id]">info</div>
+
 </div>

@@ -1,0 +1,24 @@
+<div class="product">
+
+
+  <div class="product__text">
+    <div class="product__name">{{product.name}}</div>
+    <div class="product__description">{{product.description}}</div>
+    <div class="product__info">
+      <div>For {{product.sex}}</div>
+      <div>Size: {{product.size}}</div>
+      <div>{{product.price}},00$</div>
+    </div>
+
+    <div>
+      <div class="product__button-back" routerLink="/products">GO BACK</div>
+      <div class="product__button-cart" (click)="addProductToCart(product.id)">ADD TO CART</div>
+    </div>
+  </div>
+
+  <div class="product__img-container">
+    <img class="product__img" [src]="product.img" alt="product">
+  </div>
+
+</div>
+
