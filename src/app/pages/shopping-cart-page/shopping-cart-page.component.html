@@ -9,7 +9,7 @@
 
   <div class="cart__product" *ngFor="let product of products$ | async">
 
-    <app-checkbox (valueChanged)="toggleIds(product.id)"></app-checkbox>
+    <app-checkbox (valueChanged)="toggleProductInOrder(product.id)"></app-checkbox>
 
     <div class="cart__product-img-container">
       <img class="cart__product-img" [src]="product.img" alt="product">

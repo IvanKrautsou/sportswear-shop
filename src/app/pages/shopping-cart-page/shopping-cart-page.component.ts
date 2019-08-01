@@ -25,7 +25,7 @@ export class ShoppingCartPageComponent implements OnInit {
     this.totalPrice$ = this.checkoutService.getTotalPrice();
   }
 
-  toggleIds(id: number) {
+  toggleProductInOrder(id: number) {
     this.checkoutService.toggleIds(id);
   }
 
