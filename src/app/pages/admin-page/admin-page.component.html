@@ -1,0 +1,41 @@
+<div style="margin: 80px 140px; display: block">
+
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+
+    <label>
+      Name:
+      <input type="text" formControlName="name" placeholder="enter product name" required>
+    </label>
+
+    <label>
+      Size:
+      <select formControlName="size">
+        <option *ngFor="let item of selectOptions">{{item}}</option>
+      </select>
+    </label>
+
+    <div>
+      Sex:
+      <div *ngFor="let item of radioOptions" style="display: inline-block">
+        <input [id]="item" type="radio" [value]="item" formControlName="sex">
+        <label style="display: inline-block" [for]="item">{{item}}</label>
+      </div>
+    </div>
+
+    <label>
+      Price:
+      <input type="number" formControlName="price">
+    </label>
+
+    <label>
+      Description:
+      <input type="text" formControlName="description">
+    </label>
+
+    <button type="submit" [disabled]="!productForm.valid">Submit</button>
+  </form>
+
+
+  {{productForm.value | json}}
+
+</div>
