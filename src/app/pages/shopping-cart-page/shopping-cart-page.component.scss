@@ -26,7 +26,7 @@
     display: inline-block;
     text-align: center;
     line-height: 181px;
-    margin-left: 22px;
+    margin-left: -10px;
     margin-right: 36px;
     width: 115px;
   }
@@ -46,5 +46,25 @@
   &__product-name {
     padding-bottom: 17px;
     font-size: 28px;
+  }
+
+  &__summary {}
+
+  &__price {
+    display: inline-block;
+
+  }
+
+  &__button {
+    display: inline-block;
+    background-color: #aa9b77;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 12px 10px;
+    //float: right;
+    //margin-top: -14px;
+    border-radius: 4px;
+    color: white;
+    margin-left: 50px;
   }
 }

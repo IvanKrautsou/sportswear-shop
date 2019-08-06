@@ -33,7 +33,10 @@ export class ProductsServiceService {
     return this.getAllProducts().pipe(
       switchMap(getProductsBySexes)
     );
+  }
 
+  getProductsByIds(ids: number[]): Observable<Product[]> {
+    return this.getAllProducts().pipe(map(products => products.filter(product => ids.includes(product.id))));
   }
 }
 

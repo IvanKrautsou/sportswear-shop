@@ -1,36 +1,36 @@
 [{
   "name": "T-shirt",
-  "price": "5,00$",
+  "price": "5",
   "size": "XXL",
-  "img": "../../../../assets/images/products/T-shirt.png",
+  "img": "/assets/images/products/T-shirt.png",
   "sex": "men",
   "id": 1
 }, {
   "name": "Pants FORCLAZ",
-  "price": "30,00$",
+  "price": "30",
   "size": "XS",
-  "img": "../../../../assets/images/products/Pants.png",
+  "img": "/assets/images/products/Pants.png",
   "sex": "children",
   "id": 2
 }, {
   "name": "Backpack",
-  "price": "60,00$",
+  "price": "60",
   "size": "10litri",
-  "img": "../../../../assets/images/products/backpack.png",
+  "img": "/assets/images/products/backpack.png",
   "sex": "men",
   "id": 3
 }, {
   "name": "T-shirt",
-  "price": "5,00$",
+  "price": "5",
   "size": "M",
-  "img": "../../../../assets/images/products/T-shirt.png",
+  "img": "/assets/images/products/T-shirt.png",
   "sex": "women",
   "id": 4
 }, {
   "name": "Backpack",
-  "price": "60,00$",
+  "price": "60",
   "size": "10litri",
-  "img": "../../../../assets/images/products/backpack.png",
+  "img": "/assets/images/products/backpack.png",
   "sex": "children",
   "id": 5
 }]
