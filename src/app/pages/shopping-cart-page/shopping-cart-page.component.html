@@ -1,7 +1,7 @@
 <div class="cart__title">
   Shopping cart
   <div style="display: inline-block" *ngIf="(this.shoppingCartService.selectedProductsIds | async).length">
-    ({{this.shoppingCartService.amountOfSelectedProducts() | async}})
+    ({{amountOfSelectedProducts$ | async}})
   </div>
 </div>
 
