@@ -20,12 +20,15 @@ export class ShoppingCartPageComponent implements OnInit {
 
   totalPrice$: Observable<number>;
 
+  amountOfSelectedProducts$: Observable<number>;
+
   ngOnInit() {
     this.products$ = this.shoppingCartService.getSelectedProducts();
     this.totalPrice$ = this.checkoutService.getTotalPrice();
+    this.amountOfSelectedProducts$ = this.shoppingCartService.amountOfSelectedProducts();
   }
 
-  toggleIds(id: number) {
+  toggleProductInOrder(id: number) {
     this.checkoutService.toggleIds(id);
   }
 

@@ -1,5 +1,4 @@
-<div class="product">
-
+<div class="product" *ngIf="product$ | async as product; else loading">
 
   <div class="product__text">
     <div class="product__name">{{product.name}}</div>
@@ -22,3 +21,6 @@
 
 </div>
 
+<ng-template #loading>
+  <div class="product" style="font-size: 30px">Loading...</div>
+</ng-template>

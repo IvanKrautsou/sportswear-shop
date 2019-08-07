@@ -21,7 +21,7 @@ export class ProductsServiceService {
     return this.http.get(PRODUCTS_URL) as Observable<Product[]>;
   }
 
-  getFilteredProducts() {
+  getFilteredProducts(): Observable<Product[]> {
     const getProductsBySexes = (products) => {
       return this.productsFilterService.sexesList.pipe(
         map(sexes => {
