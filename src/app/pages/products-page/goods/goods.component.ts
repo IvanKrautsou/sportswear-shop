@@ -14,10 +14,6 @@ export class GoodsComponent implements OnInit {
   constructor(private shoppingCartService: ShoppingCartService) {
   }
 
-  private toggleProductInCart(id: number): void {
-    this.shoppingCartService.toggleProduct(id);
-  }
-
   ngOnInit() {
   }
 
