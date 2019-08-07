@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ShoppingCartServiceService} from '../core/services/shopping-cart-service/shopping-cart-service.service';
+import {ShoppingCartService} from '../core/services/shopping-cart-service/shopping-cart.service';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +8,7 @@ import {ShoppingCartServiceService} from '../core/services/shopping-cart-service
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private shoppingCartService: ShoppingCartServiceService) {
+  constructor(private shoppingCartService: ShoppingCartService) {
   }
 
   ngOnInit() {

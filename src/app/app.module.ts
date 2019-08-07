@@ -18,7 +18,7 @@ import {InputTextComponent} from './core/components/control/input-text/input-tex
 import {RadioButtonComponent} from './core/components/control/radio-button/radio-button.component';
 import {SelectComponent} from './core/components/control/select/select.component';
 import {ShoppingCartPageComponent} from './pages/shopping-cart-page/shopping-cart-page.component';
-import { ProductInfoPageComponent } from './pages/product-info-page/product-info-page.component';
+import {ProductInfoPageComponent} from './pages/product-info-page/product-info-page.component';
 
 @NgModule({
   declarations: [

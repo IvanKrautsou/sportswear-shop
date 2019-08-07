@@ -1,18 +1,18 @@
 import {NgModule} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {map, switchMap} from 'rxjs/operators';
-import {ProductsServiceService} from '../products-service/products-service.service';
+import {ProductsService} from '../products-service/products.service';
 
 
 @NgModule({
   providers: [
-    ProductsServiceService
+    ProductsService
   ],
 })
 
 export class CheckoutService {
 
-  constructor(private productsService: ProductsServiceService) {
+  constructor(private productsService: ProductsService) {
   }
 
   private _checkedProductsIds: BehaviorSubject<number[]> = new BehaviorSubject([]);

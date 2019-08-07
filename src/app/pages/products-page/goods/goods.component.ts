@@ -1,6 +1,6 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {Product} from '../../../product';
-import {ShoppingCartServiceService} from '../../../core/services/shopping-cart-service/shopping-cart-service.service';
+import {ShoppingCartService} from '../../../core/services/shopping-cart-service/shopping-cart.service';
 
 @Component({
   selector: 'app-goods',
@@ -11,7 +11,7 @@ export class GoodsComponent implements OnInit {
 
   @Input() products: Product[];
 
-  constructor(private shoppingCartService: ShoppingCartServiceService) {
+  constructor(private shoppingCartService: ShoppingCartService) {
   }
 
   private toggleProductInCart(id: number): void {

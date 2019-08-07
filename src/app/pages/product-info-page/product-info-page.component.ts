@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {Product} from '../../product';
-import {ProductsServiceService} from '../../core/services/products-service/products-service.service';
+import {ProductsService} from '../../core/services/products-service/products.service';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {ActivatedRoute} from '@angular/router';
-import {ShoppingCartServiceService} from '../../core/services/shopping-cart-service/shopping-cart-service.service';
+import {ShoppingCartService} from '../../core/services/shopping-cart-service/shopping-cart.service';
 
 @Component({
   selector: 'app-product-info-page',
@@ -17,8 +17,8 @@ export class ProductInfoPageComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private productsService: ProductsServiceService,
-    private shoppingCartService: ShoppingCartServiceService
+    private productsService: ProductsService,
+    private shoppingCartService: ShoppingCartService
   ) {
   }
 
