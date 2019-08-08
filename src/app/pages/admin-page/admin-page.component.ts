@@ -24,9 +24,9 @@ export class AdminPageComponent implements OnInit {
   get price() { return this.productForm.get('price'); }
 
 
-  selectOptions: string[] = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
+  sizes: string[] = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
 
-  radioOptions: string[] = ['men', 'women', 'children'];
+  sexesList: string[] = ['men', 'women', 'children'];
 
   product: Product;
 
