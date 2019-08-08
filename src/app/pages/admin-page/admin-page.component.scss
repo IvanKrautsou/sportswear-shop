@@ -1,3 +1,25 @@
 label {
+  display: inline-block;
+}
+
+.property {
   display: block;
+
+  &__name {
+    width: 110px;
+    display: inline-block;
+    text-align: right;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.button {
+  margin-left: 120px;
+}
+
+.alert {
+  display: inline-block;
+  margin-left: 13px;
+  color: brown;
 }

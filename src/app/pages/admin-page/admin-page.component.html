@@ -1,41 +1,81 @@
-<div style="margin: 80px 140px; display: block">
+<div style="margin: 80px 140px; display: block; font-size: 22px">
 
   <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
 
-    <label>
-      Name:
-      <input type="text" formControlName="name" placeholder="enter product name" required>
-    </label>
+    <div class="property">
+      <label>
+        <div class="property__name">Name:</div>
+        <input type="text" formControlName="name" placeholder="Enter product name" required>
+      </label>
 
-    <label>
-      Size:
-      <select formControlName="size">
-        <option *ngFor="let item of selectOptions">{{item}}</option>
-      </select>
-    </label>
+      <div *ngIf="name.invalid && name.touched"
+           class="alert">
 
-    <div>
-      Sex:
-      <div *ngFor="let item of radioOptions" style="display: inline-block">
-        <input [id]="item" type="radio" [value]="item" formControlName="sex">
-        <label style="display: inline-block" [for]="item">{{item}}</label>
+        <div *ngIf="name.errors.required">
+          Name is required.
+        </div>
+        <div *ngIf="name.errors.minlength">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="name.errors.maxlength">
+          Name must be no more than 15 characters long.
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="property">
+      <label>
+        <div class="property__name">Size:</div>
+        <select formControlName="size">
+          <option *ngFor="let item of selectOptions">{{item}}</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="property">
+      <div>
+        <div class="property__name">Sex:</div>
+        <div *ngFor="let item of radioOptions" style="display: inline-block">
+          <input [id]="item" type="radio" [value]="item" formControlName="sex">
+          <label style="display: inline-block; margin-right: 10px" [for]="item">{{item}}</label>
+        </div>
       </div>
     </div>
 
-    <label>
-      Price:
-      <input type="number" formControlName="price">
-    </label>
 
-    <label>
-      Description:
-      <input type="text" formControlName="description">
-    </label>
+    <div class="property">
+      <label>
+        <div class="property__name" style="float: left;">Description:</div>
+        <textarea type="text" formControlName="description" cols="25" rows="2"
+                  placeholder="Add some description"></textarea>
+      </label>
+    </div>
 
-    <button type="submit" [disabled]="!productForm.valid">Submit</button>
+    <div class="property">
+      <label>
+        <div class="property__name">Price(USD):</div>
+        <input type="number" formControlName="price" placeholder="0">
+      </label>
+
+      <div *ngIf="price.invalid && price.touched"
+           class="alert">
+
+        <div *ngIf="price.errors.required">
+          Price is required.
+        </div>
+        <div *ngIf="price.errors.min">
+          Price must be a positive number.
+        </div>
+
+      </div>
+    </div>
+
+    <button class="button" type="submit" [disabled]="!productForm.valid">Submit</button>
   </form>
 
 
-  {{productForm.value | json}}
-
 </div>
+

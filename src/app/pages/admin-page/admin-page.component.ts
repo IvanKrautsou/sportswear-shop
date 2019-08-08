@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder} from '@angular/forms';
+import {FormBuilder, Validators} from '@angular/forms';
 import {Product} from '../../product';
 
 @Component({
@@ -13,14 +13,19 @@ export class AdminPageComponent implements OnInit {
   }
 
   productForm = this.fb.group({
-    name: [''],
+    name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(15)]],
     size: ['XS'],
     sex: [''],
-    price: [''],
+    price: ['', [Validators.required, Validators.min(1)]],
     description: [''],
   });
 
+  get name() { return this.productForm.get('name'); }
+  get price() { return this.productForm.get('price'); }
+
+
   selectOptions: string[] = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
+
   radioOptions: string[] = ['men', 'women', 'children'];
 
   product: Product;
