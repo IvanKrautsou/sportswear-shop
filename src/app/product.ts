@@ -7,4 +7,5 @@ export interface Product {
   img: string;
   sex: Sex;
   id?: number;
+  description?: string;
 }

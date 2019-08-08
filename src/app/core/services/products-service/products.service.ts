@@ -10,7 +10,7 @@ const PRODUCTS_URL = 'assets/products.json';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductsServiceService {
+export class ProductsService {
 
   constructor(
     private http: HttpClient,

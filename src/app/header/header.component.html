@@ -7,7 +7,7 @@
 
       <a class="header__shopping-cart" routerLink="/cart">
         <img class="header__foot" src="../../assets/images/shopping-cart.png" alt="code"/>
-        <div class="header__product-counter">{{(this.shoppingCartService.amountOfSelectedProducts() | async) || ''}}</div>
+        <div class="header__product-counter">{{(amountOfSelectedProducts$ | async) || ''}}</div>
       </a>
     </div>
   </div>
