@@ -1,0 +1,23 @@
+.add-product {
+  margin: 80px 140px;
+  font-size: 22px;
+
+  &__control-name {
+    width: 110px;
+    display: inline-block;
+    text-align: right;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  &__submit-button {
+    margin-left: 120px;
+  }
+
+  &__display-alert {
+    display: inline-block;
+    margin-left: 13px;
+    color: brown;
+  }
+
+}

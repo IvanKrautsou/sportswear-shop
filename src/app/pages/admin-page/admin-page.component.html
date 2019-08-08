@@ -1,0 +1,79 @@
+<div class="add-product">
+
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+
+    <div>
+      <label>
+        <div class="add-product__control-name">Name:</div>
+        <input type="text" formControlName="name" placeholder="Enter product name" required>
+      </label>
+
+      <div *ngIf="productForm.controls.name.invalid && name.touched" class="add-product__display-alert">
+
+        <div *ngIf="name.errors.required">
+          Name is required.
+        </div>
+        <div *ngIf="name.errors.minlength">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="name.errors.maxlength">
+          Name must be no more than 15 characters long.
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div>
+      <label>
+        <div class="add-product__control-name">Size:</div>
+        <select formControlName="size">
+          <option *ngFor="let item of sizes">{{item}}</option>
+        </select>
+      </label>
+    </div>
+
+    <div>
+      <div>
+        <div class="add-product__control-name">Sex:</div>
+        <div *ngFor="let item of sexesList" style="display: inline-block">
+          <input [id]="item" type="radio" [value]="item" formControlName="sex">
+          <label style="display: inline-block; margin-right: 10px" [for]="item">{{item}}</label>
+        </div>
+      </div>
+    </div>
+
+
+    <div>
+      <label>
+        <div class="add-product__control-name" style="float: left;">Description:</div>
+        <textarea type="text" formControlName="description" cols="25" rows="2"
+                  placeholder="Add some description"></textarea>
+      </label>
+    </div>
+
+    <div>
+      <label>
+        <div class="add-product__control-name">Price(USD):</div>
+        <input type="number" formControlName="price" placeholder="0" required>
+      </label>
+
+      <div *ngIf="price.invalid && price.touched" class="add-product__display-alert">
+
+        <div *ngIf="price.errors.required">
+          Price is required.
+        </div>
+        <div *ngIf="price.errors.min">
+          Price must be a positive number.
+        </div>
+
+      </div>
+    </div>
+
+    <button class="add-product__submit-button" type="submit" [disabled]="!productForm.valid">Submit</button>
+  </form>
+
+
+</div>
+

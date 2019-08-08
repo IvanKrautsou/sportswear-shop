@@ -2,6 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -10,7 +11,6 @@ import {FooterComponent} from './footer/footer.component';
 import {ProductsPageComponent} from './pages/products-page/products-page.component';
 import {GoodsComponent} from './pages/products-page/goods/goods.component';
 import {ProductsFilterComponent} from './pages/products-page/products-filter/products-filter.component';
-import {AddProductComponent} from './pages/products-page/add-product/add-product.component';
 import {ProductComponent} from './pages/products-page/product/product.component';
 import {ControlComponent} from './core/components/control/control.component';
 import {CheckboxComponent} from './core/components/control/checkbox/checkbox.component';
@@ -19,6 +19,7 @@ import {RadioButtonComponent} from './core/components/control/radio-button/radio
 import {SelectComponent} from './core/components/control/select/select.component';
 import {ShoppingCartPageComponent} from './pages/shopping-cart-page/shopping-cart-page.component';
 import {ProductInfoPageComponent} from './pages/product-info-page/product-info-page.component';
+import {AdminPageComponent} from './pages/admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,6 @@ import {ProductInfoPageComponent} from './pages/product-info-page/product-info-p
     ProductsPageComponent,
     GoodsComponent,
     ProductsFilterComponent,
-    AddProductComponent,
     ProductComponent,
     ControlComponent,
     CheckboxComponent,
@@ -36,13 +36,15 @@ import {ProductInfoPageComponent} from './pages/product-info-page/product-info-p
     RadioButtonComponent,
     SelectComponent,
     ShoppingCartPageComponent,
-    ProductInfoPageComponent
+    ProductInfoPageComponent,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
