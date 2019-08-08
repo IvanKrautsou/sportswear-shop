@@ -1,4 +1,4 @@
-<div class="goods__product product product_main-page">
+<div class="goods__product product product_main-page" [routerLink]="['/products', product.id]">
 
   <div class="product__size">{{product.size}}</div>
   <div class="product__name">{{product.name}}</div>
@@ -8,6 +8,6 @@
     <img [src]="product.img" alt="product">
   </div>
 
-  <div class="product__showInfo" [routerLink]="['/products', product.id]">info</div>
+  <div class="product__addToCart" (click)="toggleProductInCart(product.id); $event.stopPropagation()">add to cart</div>
 
 </div>

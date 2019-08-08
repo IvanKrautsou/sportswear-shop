@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Product} from '../../product';
-import {ShoppingCartServiceService} from '../../core/services/shopping-cart-service/shopping-cart-service.service';
+import {ShoppingCartService} from '../../core/services/shopping-cart-service/shopping-cart.service';
 import {CheckoutService} from '../../core/services/checkout-service/checkout.service';
 
 @Component({
@@ -12,7 +12,7 @@ import {CheckoutService} from '../../core/services/checkout-service/checkout.ser
 })
 export class ShoppingCartPageComponent implements OnInit {
 
-  constructor(private shoppingCartService: ShoppingCartServiceService,
+  constructor(private shoppingCartService: ShoppingCartService,
               private  checkoutService: CheckoutService) {
   }
 
@@ -20,12 +20,15 @@ export class ShoppingCartPageComponent implements OnInit {
 
   totalPrice$: Observable<number>;
 
+  amountOfSelectedProducts$: Observable<number>;
+
   ngOnInit() {
     this.products$ = this.shoppingCartService.getSelectedProducts();
     this.totalPrice$ = this.checkoutService.getTotalPrice();
+    this.amountOfSelectedProducts$ = this.shoppingCartService.amountOfSelectedProducts();
   }
 
-  toggleIds(id: number) {
+  toggleProductInOrder(id: number) {
     this.checkoutService.toggleIds(id);
   }
 

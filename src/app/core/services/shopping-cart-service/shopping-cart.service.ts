@@ -1,15 +1,15 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
-import {ProductsServiceService} from '../products-service/products-service.service';
+import {ProductsService} from '../products-service/products.service';
 import {map, switchMap} from 'rxjs/operators';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class ShoppingCartServiceService {
+export class ShoppingCartService {
 
-  constructor(private productsService: ProductsServiceService) {
+  constructor(private productsService: ProductsService) {
   }
 
   private _selectedProductsIds: BehaviorSubject<number[]> = new BehaviorSubject([]);

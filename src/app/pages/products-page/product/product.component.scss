@@ -11,6 +11,7 @@
   font-size: 18px;
   text-transform: uppercase;
   position: relative;
+  outline: none;
 
   &_selected {
     outline: 6px #aa9b77 solid;
@@ -62,12 +63,12 @@
     }
   }
 
-  &__showInfo {
+  &__addToCart {
     position: absolute;
     top: 23px;
     right: 26px;
-    font-size: 20px;
-    padding: 7px;
+    font-size: 16px;
+    padding: 6px;
     border: 1px #d2d1cf solid;
   }
 }

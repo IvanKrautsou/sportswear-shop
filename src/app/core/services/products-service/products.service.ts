@@ -10,7 +10,7 @@ const PRODUCTS_URL = 'assets/products.json';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductsServiceService {
+export class ProductsService {
 
   constructor(
     private http: HttpClient,
@@ -21,7 +21,7 @@ export class ProductsServiceService {
     return this.http.get(PRODUCTS_URL) as Observable<Product[]>;
   }
 
-  getFilteredProducts() {
+  getFilteredProducts(): Observable<Product[]> {
     const getProductsBySexes = (products) => {
       return this.productsFilterService.sexesList.pipe(
         map(sexes => {
